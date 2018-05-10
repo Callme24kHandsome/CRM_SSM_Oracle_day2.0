@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<MenuConfig>
+
+  <Displayers>
+    <Displayer   name="DropDown"
+                 type="net.sf.navigator.displayer.DropDownMenuDisplayer"/>
+  </Displayers>
+
+  <Menus>
+
+    <Menu  name="ToDoListMenuFile"  title="客户关系管理系统"  description="test" width="50">
+       <Item   name="TDLnew"   title="营销管理">
+           <Item   name="TDLnewcase"   title="营销机会管理"    image="images/case-new.png"
+                   location="/CRM_SSM_Oracle_day2.0/chance/list"/>
+           <Item   name="TDLnewitem"    title="ITEM"   image="images/item-new.png"
+                   location="index.jsp"/>
+           <Item   name="TDLnewparty"   title="PARTY"  image="images/party-new.png"
+                   location="index.jsp"/>
+       </Item>
+       <Item   name="TDLopen"   title="系统用户管理">
+           <Item   name="TDLopencase"    title="系统角色管理"   image="images/case-open.png"
+                    location="index.jsp"/>
+           <Item   name="TDLopenitem"   title="ITEM"    image="images/item-open.png"
+                    location="index.jsp"/>
+           <Item   name="TDLopenparty"  title="PARTY"   image="images/party-open.png"
+                    location="index.jsp"/>
+       </Item>
+       <Item    name="TDLexit"  title="EXIT"
+                image="images/exit.png"   location="index.jsp"/>
+    </Menu>
+
+  </Menus>
+
+</MenuConfig>

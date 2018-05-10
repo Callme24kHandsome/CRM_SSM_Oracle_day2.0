@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.crm.dao.SalesChanceMapper">
+	<sql id="chanceCondition">
+		<where>
+			<if test="status != null">
+				status = 1
+			</if>
+			<if test="custName != null">
+				AND cust_name LIKE #{custName}
+			</if>
+			<if test="title != null">
+				AND title LIKE #{title}
+			</if>
+			<if test="contact != null">
+				AND contact LIKE #{contact}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="getTotalElements" resultType="long">
+		SELECT count(id) 
+		FROM sales_chances
+		<include refid="chanceCondition"/>
+	</select>
+	
+	<select id="getContent" resultType="com.atguigu.crm.entity.SalesChance">
+		SELECT * 
+		FROM (SELECT rownum rn, id, contact, create_date, cust_name, title, contact_tel
+			  FROM sales_chances
+			  <include refid="chanceCondition"/>) t
+		<![CDATA[
+		WHERE t.rn >= #{fromIndex} AND t.rn < #{endIndex}
+		]]>	  
+	</select>
+</mapper>

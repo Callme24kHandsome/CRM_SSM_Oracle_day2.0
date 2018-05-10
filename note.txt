@@ -1,0 +1,17 @@
+1. 系统权限管理的系统用户管理 CRUD 以及带查询条件的分页
+
+1). 带查询条件的分页
+URL: /crm/user/list  GET
+查询条件: 用户名 和 状态. 对应的字段分别为: name, enabled; 比较方式: LIKE, EQ
+
+2). 新建:
+①. 显示表单页面: 
+URL: /crm/user/ GET
+页面上的 角色 的下拉列表来自于 roles 数据表
+②. 完成添加操作:
+URL: /crm/user/ POST
+其中 salt 是一个随机的字符串. 使用 UUID
+
+3). 删除: 真正删除
+
+4). 修改. 
